@@ -1,12 +1,16 @@
-# TeamProject
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=TeamProject&fontSize=90" />
 
-<img src="https://img.shields.io/badge/YuHan-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
 # 유한대학교 학생들끼리 모여서 간단한 프로그램을 만드는 프로젝트입니다.
 
--주제 : 미정
 
--기간 : 미정
-
--인원 : 4인
-
-등등 ...
+<div align="left">
+  <img src="https://img.shields.io/badge/-000000?style=flat&logo=AirPlay Video&logoColor=white"/> 사용언어 <br>
+	<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white" />
+	<img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=C++&logoColor=white" />
+</div>
+<br>
+<div align="left">
+  <img src="https://img.shields.io/badge/-000000?style=flat&logo=ArtStation&logoColor=white"/> 사용툴 <br>
+	<img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat&logo=Eclipse IDE&logoColor=white" />
+	<img src="https://img.shields.io/badge/Visual Studio-5C2D91?style=flat&logo=Visual Studio&logoColor=white" />
+</div>
