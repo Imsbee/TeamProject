@@ -1,6 +1,6 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=TeamProject&fontSize=90" />
 
-# 유한대학교 학생들끼리 모여서 간단한 프로그램을 만드는 프로젝트입니다.
+# 유한대학교 학생들끼리 모여서 간단한 채팅 프로그램을 만드는 프로젝트입니다.
 
 
 <div align="left">
