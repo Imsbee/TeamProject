@@ -6,7 +6,6 @@
 <div align="left">
   <img src="https://img.shields.io/badge/-000000?style=flat&logo=AirPlay Video&logoColor=white"/> 사용언어 <br>
 	<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white" />
-	<img src="https://img.shields.io/badge/Android-00599C?style=flat&logo=Android&logoColor=white" />
 </div>
 <br>
 <div align="left">
