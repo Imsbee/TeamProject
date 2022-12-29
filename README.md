@@ -12,5 +12,4 @@
 <div align="left">
   <img src="https://img.shields.io/badge/-000000?style=flat&logo=ArtStation&logoColor=white"/> 사용툴 <br>
 	<img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat&logo=Eclipse IDE&logoColor=white" />
-	<img src="https://img.shields.io/badge/Android Studio-5C2D91?style=flat&logo=Android Studio&logoColor=white" />
 </div>
