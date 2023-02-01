@@ -1,5 +1,5 @@
 /*
- * 로그인 화면 뷰
+ * 로그인 화면 뷰 : 아이디/pw입력, 로그인/회원가입 버튼
  */
 
 package com.yuhan.chat.view;
@@ -16,57 +16,60 @@ import javax.swing.JTextField;
 
 public class LoginView extends JPanel {
 
-	JPanel loginPan = new JPanel(new GridLayout(5, 5, 10, 10));
-	JButton btnLogin = new JButton("로그인");
-	JButton btnSignup = new JButton("회원가입");
-
+	JButton btnLogin;
+	JButton btnSignup;
 	JTextField tfId = new JTextField();
 	JPasswordField tfPw = new JPasswordField();
-
+	
+	
 	public LoginView() {
-		setLayout(new BorderLayout(10, 10));
-
-		// 로그인 패널에 추가할 컴포넌트들
+		setLayout(null);
+		
+		//로그인
 		JLabel lblTitle = new JLabel("로 그 인");
+		lblTitle.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		lblTitle.setHorizontalAlignment(JLabel.CENTER);
-		lblTitle.setFont(new Font("", Font.BOLD, 15));
-
-		JLabel lblId = new JLabel("아이디 : ");
-		JLabel lblPw = new JLabel("비밀번호 : ");
-		JLabel lblBlank = new JLabel("");
-		JLabel lblBlank2 = new JLabel("");
-
+		lblTitle.setBounds(125, 70, 100, 50);
+		
+		
+		//아이디, 패스워드
+		JLabel lblId = new JLabel("아이디 :  ");
 		lblId.setHorizontalAlignment(JLabel.RIGHT);
+		lblId.setBounds(60, 140, 80, 30);
+		tfId.setBounds(140, 140, 150, 30);
+		
+		JLabel lblPw = new JLabel("비밀번호 : ");
 		lblPw.setHorizontalAlignment(JLabel.RIGHT);
-
-		// 패널에 컴포넌트 추가
-		loginPan.add(lblId);
-		loginPan.add(tfId);
-		loginPan.add(lblPw);
-		loginPan.add(tfPw);
-		loginPan.add(lblBlank);
-		loginPan.add(btnLogin);
-		loginPan.add(lblBlank2);
-		loginPan.add(btnSignup);
-
-		add("North", lblTitle);
-		add("Center", loginPan);
-
+		lblPw.setBounds(60, 175, 80, 30);
+		tfPw.setBounds(140, 175, 150, 30);
+		
+		
+		//버튼
+		btnLogin = new JButton("로그인");
+		btnLogin.setBounds(205, 220, 85, 25);
+		btnSignup = new JButton("회원가입");
+		btnSignup.setBounds(205, 250, 85, 25);
+		
+		
+		//패널에 컴포넌트 추가
+		add(lblTitle);
+		add(lblId); add(tfId);
+		add(lblPw); add(tfPw);
+		add(btnLogin);
+		add(btnSignup);
+		
 	}
-
+	
+	
 	public JTextField getTfId() {
 		return tfId;
 	}
-
 	public JPasswordField getTfPw() {
 		return tfPw;
 	}
-
 	public JButton getBtnSignup() {
 		return btnSignup;
 	}
-
-	// 다른 클래스에서 btnLogin 버튼에 접근 가능하게 함
 	public JButton getBtnLogin() {
 		return btnLogin;
 	}

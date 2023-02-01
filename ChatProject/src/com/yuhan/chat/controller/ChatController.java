@@ -38,7 +38,7 @@ public class ChatController extends JFrame{
 		JButton BtnSignup = tv.getBtnSignup();
 		BtnSignup.addActionListener(btnSignupL);
 		
-		setBounds(300, 300, 300, 300);
+		setBounds(300, 300, 350, 500);
 		setVisible(true);
 		
 		ChatReaderThread CRT = new ChatReaderThread();

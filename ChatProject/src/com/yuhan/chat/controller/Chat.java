@@ -58,7 +58,7 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 		// 윈도우 창 설정
 		exitBtn.addActionListener(Lexit);
 		add(room);
-		setBounds(300, 300, 300, 300);
+		setBounds(300, 300, 350, 500);
 		setVisible(true);
 		
 		// 윈도우 이벤트
