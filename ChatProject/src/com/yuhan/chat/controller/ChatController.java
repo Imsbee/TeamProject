@@ -8,15 +8,12 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.ConnectException;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.xml.stream.events.StartDocument;
 
-import com.yuhan.chat.db.*;
 import com.yuhan.chat.view.*;
 import com.yuhan.chat.server.*;
 
@@ -68,10 +65,13 @@ public class ChatController extends JFrame{
 					else if(dto.getCommand()==InfoDTO.Info.ROOMCREATE) {
 						
 						System.out.println("방생성");
-						
 						ChatObject chatsub = new ChatObject(dto.getPort());
 						chatsub.service(myname);
 						
+					}
+					else if(dto.getCommand()==InfoDTO.Info.EXPORTPORT) {
+						ChatObject chatsub = new ChatObject(dto.getPort());
+						chatsub.service(myname);
 					}
 				} catch (SocketException e) {
 					e.printStackTrace();
@@ -109,8 +109,7 @@ public class ChatController extends JFrame{
 				writer.writeObject(dto);
 				writer.flush();
 				
-				/*
-				ChatObject chatsub = new ChatObject(9997);
+				/*ChatObject chatsub = new ChatObject(9997);
 				chatsub.service(myname);*/
 				
 			} catch (IOException e1) {
@@ -136,14 +135,12 @@ public class ChatController extends JFrame{
 	ActionListener btnExitL = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			try {
 				reader.close();
 				writer.close();
 				socket.close();
 				System.exit(0);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
@@ -165,7 +162,7 @@ public class ChatController extends JFrame{
 				System.out.println("pw가 입력되지 않았습니다.");
 			}
 			else {
-				String serverIP = "172.18.7.178"; //Server주소
+				String serverIP = "172.18.7.179"; //Server주소
 				try {
 					socket = new Socket(serverIP, 9999);
 					writer = new ObjectOutputStream(socket.getOutputStream());
@@ -214,7 +211,7 @@ public class ChatController extends JFrame{
 				System.out.println("name가 입력되지 않았습니다.");
 			}
 			else {
-				String serverIP = "172.18.7.178"; //Server주소
+				String serverIP = "172.18.7.179"; //Server주소
 				try {
 					socket = new Socket(serverIP, 9999);
 					writer = new ObjectOutputStream(socket.getOutputStream());

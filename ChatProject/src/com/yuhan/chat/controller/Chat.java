@@ -9,11 +9,12 @@ import java.io.*;
 
 
 import com.yuhan.chat.server.*;
+import com.yuhan.chat.view.ChatRoomView;
 
 class ChatObject extends JFrame implements ActionListener, Runnable {
 	private JTextArea output;
 	private JTextField input;
-	private JButton sendBtn;
+	private JButton sendBtn, exitBtn;
 	private Socket socket;
 	private ObjectInputStream reader = null;
 	private ObjectOutputStream writer = null;
@@ -21,9 +22,19 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 	// private InfoDTO dto;
 	private String nickName;
 	private int port;
+	private ChatRoomView room;
 
 	public ChatObject(int port) {
 		this.port = port;
+		
+		room = new ChatRoomView();
+		
+		output = room.getTaChat();
+		input = room.getTfChat();
+		sendBtn = room.getBtnSend();
+		exitBtn = room.getBtnExit();
+		
+		/*
 		// 센터에 TextArea만들기
 		output = new JTextArea();
 		output.setFont(new Font("맑은 고딕", Font.BOLD, 15));
@@ -43,8 +54,10 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 		// container에 붙이기
 		Container c = this.getContentPane();
 		c.add("Center", scroll); // 센터에 붙이기
-		c.add("South", bottom); // 남쪽에 붙이기
+		c.add("South", bottom); // 남쪽에 붙이기*/
 		// 윈도우 창 설정
+		exitBtn.addActionListener(Lexit);
+		add(room);
 		setBounds(300, 300, 300, 300);
 		setVisible(true);
 		
@@ -69,7 +82,7 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 
 	public void service(String myname) {
 		// 닉네임 받기
-		String serverIP = "172.18.7.178"; //Server주소
+		String serverIP = "172.18.7.179"; //Server주소
 		nickName = myname;
 		try {
 			socket = new Socket(serverIP, port);
@@ -123,6 +136,8 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 					int pos = output.getText().length();
 					output.setCaretPosition(pos);
 				}
+			} catch (SocketException e) {
+				break;
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
@@ -142,8 +157,8 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 			String msg = input.getText();
 			InfoDTO dto = new InfoDTO();
 			// dto.setNickName(nickName);
-			if (msg.equals("exit")) {
-				dto.setCommand(InfoDTO.Info.EXIT);
+			if (e.getActionCommand().equals("나가기")) {
+				
 			} else {
 				dto.setCommand(InfoDTO.Info.SEND);
 				dto.setMessage(msg);
@@ -158,4 +173,21 @@ class ChatObject extends JFrame implements ActionListener, Runnable {
 		}
 
 	}
+	
+	ActionListener Lexit = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				reader.close();
+				writer.close();
+				socket.close();
+				dispose();
+				
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	};
+	
 }

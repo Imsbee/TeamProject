@@ -7,13 +7,19 @@ package com.yuhan.chat.view;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.naming.NamingException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import com.yuhan.chat.db.ChatDto;
+import com.yuhan.chat.server.InfoDTO;
 
 public class ChatRoomView extends JPanel {
 
@@ -63,6 +69,30 @@ public class ChatRoomView extends JPanel {
 		add("Center", chatRoomPan);
 		add("South", panChat2);
 
+	}
+	
+	public JPanel getChatRoomPan() {
+		return chatRoomPan;
+	}
+
+	public JButton getBtnExit() {
+		return btnExit;
+	}
+
+	public JButton getBtnSend() {
+		return btnSend;
+	}
+
+	public JTextArea getTaUserList() {
+		return taUserList;
+	}
+
+	public JTextArea getTaChat() {
+		return taChat;
+	}
+
+	public JTextField getTfChat() {
+		return tfChat;
 	}
 
 }
